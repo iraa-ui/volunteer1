@@ -37,7 +37,7 @@ const applyToEvent = asyncHandler(async (req, res) => {
 const myRegistrations = asyncHandler(async (req, res) => {
   const registrations = await Registration.findAll({
     where: { user_id: req.user.id },
-    include: [{ model: Event }],
+    include: [{ model: Event, as: "event" }],
     order: [["applied_at", "DESC"]],
   });
   res.json({ success: true, data: registrations });
@@ -50,7 +50,7 @@ const listByEvent = asyncHandler(async (req, res) => {
 
   const registrations = await Registration.findAll({
     where: { event_id: req.params.eventId },
-    include: [{ model: User, attributes: ["id", "full_name", "email", "phone"] }],
+    include: [{ model: User, as: "user", attributes: ["id", "full_name", "email", "phone"] }],
     order: [["applied_at", "ASC"]],
   });
 
@@ -64,7 +64,7 @@ const updateStatus = asyncHandler(async (req, res) => {
   if (!validStatuses.includes(status)) {
     throw ApiError.badRequest("Status tidak valid");
   }
-  const registration = await Registration.findByPk(req.params.id, { include: [Event] });
+  const registration = await Registration.findByPk(req.params.id, { include: [{ model: Event, as: "event" }] });
   if (!registration) throw ApiError.notFound("Data pendaftaran tidak ditemukan");
 
   const event = registration.Event || registration.event;
