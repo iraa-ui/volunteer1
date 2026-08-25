@@ -248,8 +248,8 @@ export default function AdminDashboard() {
                 {registrants.map((r) => (
                   <div key={r.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 rounded-xl bg-white/50 border border-gray-100 gap-3">
                     <div className="space-y-0.5 text-left">
-                      <strong className="text-emerald-950 text-sm">{r.User?.full_name}</strong>
-                      <p className="text-gray-500 text-xs">{r.User?.email} {r.User?.phone ? `· 📞 ${r.User.phone}` : ""}</p>
+                      <strong className="text-emerald-950 text-sm">{(r.user || r.User)?.full_name}</strong>
+                      <p className="text-gray-500 text-xs">{(r.user || r.User)?.email} {(r.user || r.User)?.phone ? `· 📞 ${(r.user || r.User).phone}` : ""}</p>
                     </div>
                     <select className="glass-input text-xs max-w-[140px] px-2 py-1.5" value={r.status} onChange={(e) => handleStatusChange(r.id, e.target.value)}>
                       <option value="pending">Menunggu</option>
