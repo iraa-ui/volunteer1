@@ -122,11 +122,11 @@ export default function Dashboard() {
             {registrations.map((r) => (
               <div key={r.id} className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="space-y-1">
-                  <Link to={`/events/${r.Event.id}`} className="font-display font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors">
-                    {r.Event.title}
+                  <Link to={`/events/${(r.event || r.Event)?.id}`} className="font-display font-bold text-lg text-emerald-950 hover:text-emerald-700 transition-colors">
+                    {(r.event || r.Event)?.title}
                   </Link>
                   <p className="text-gray-500 text-xs flex items-center gap-1.5">
-                    <span>📍</span> {r.Event.location} · <span>📅</span> {r.Event.event_date}
+                    <span>📍</span> {(r.event || r.Event)?.location} · <span>📅</span> {(r.event || r.Event)?.event_date}
                   </p>
                 </div>
                 <span className={`self-start sm:self-center px-3.5 py-1.5 rounded-full text-xs font-bold border ${statusLabel[r.status].color} whitespace-nowrap`}>
