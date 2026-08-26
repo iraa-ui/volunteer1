@@ -61,7 +61,7 @@ export default function Dashboard() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 space-y-8 text-left">
       <div className="space-y-2">
-        <h1 className="text-3xl font-display font-bold text-emerald-950">Dashboard Relawan</h1>
+        <h1 className="text-3xl font-display font-bold text-emerald-950">Dashboard Sahabat Amal</h1>
         <p className="text-gray-500 text-sm">Selamat datang kembali, {user?.full_name}.</p>
       </div>
 
@@ -75,7 +75,7 @@ export default function Dashboard() {
           }`} 
           onClick={() => setActiveTab("registrations")}
         >
-          🌿 Kegiatan Saya
+          🕌 Riwayat Amal Saya
         </button>
         <button 
           className={`px-4 py-2 text-sm font-bold rounded-xl transition-all ${
@@ -95,26 +95,26 @@ export default function Dashboard() {
           {/* Metrics Summary cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="glass-panel p-6 rounded-2xl">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Total Terdaftar</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Total Terdaftar Amal</span>
               <strong className="text-3xl font-extrabold text-emerald-950 block">{totalRegistrations}</strong>
             </div>
             <div className="glass-panel p-6 rounded-2xl">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Kegiatan Disetujui</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Program Disetujui</span>
               <strong className="text-3xl font-extrabold text-emerald-950 block">{approvedRegistrations}</strong>
             </div>
             <div className="glass-panel p-6 rounded-2xl">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Kehadiran (Hadir)</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Kehadiran Beramal</span>
               <strong className="text-3xl font-extrabold text-emerald-950 block">{attendedRegistrations}</strong>
             </div>
           </div>
 
-          {loading && <p className="text-gray-500 font-bold">Memuat kegiatan...</p>}
+          {loading && <p className="text-gray-500 font-bold">Memuat program amal...</p>}
 
           {!loading && registrations.length === 0 && (
             <div className="text-center py-12 glass-panel rounded-2xl space-y-4">
-              <strong className="block text-emerald-950 text-lg">Kamu belum punya riwayat kegiatan.</strong>
-              <p className="text-gray-500 text-sm">Yuk mulai jelajahi event yang paling cocok dengan semangatmu.</p>
-              <Link to="/events" className="btn-pill-primary text-sm">Jelajahi Kegiatan</Link>
+              <strong className="block text-emerald-950 text-lg">Kamu belum memiliki riwayat program amal.</strong>
+              <p className="text-gray-500 text-sm">Yuk mulai jelajahi program amal yang paling cocok untuk Anda.</p>
+              <Link to="/events" className="btn-pill-primary text-sm">Jelajahi Program Amal</Link>
             </div>
           )}
 

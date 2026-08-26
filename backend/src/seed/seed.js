@@ -5,43 +5,43 @@ async function seed() {
   await sequelize.sync({ force: true });
 
   const categories = await Category.bulkCreate([
-    { name: "Lingkungan" },
-    { name: "Pendidikan" },
-    { name: "Bencana Alam" },
-    { name: "Kesehatan" },
+    { name: "Wakaf & Pembangunan" },
+    { name: "Pendidikan & Dakwah" },
+    { name: "Kemanusiaan & Bencana" },
+    { name: "Sedekah & Pangan" },
   ]);
 
   const admin = await User.create({
-    full_name: "Admin Volunteer",
-    email: "admin@volunteer.id",
+    full_name: "Admin AmalSholeh",
+    email: "admin@amalsholeh.id",
     password_hash: "admin123",
     role: "admin",
   });
 
   const volunteer = await User.create({
     full_name: "Siti Aminah",
-    email: "volunteer@volunteer.id",
-    password_hash: "vol12345",
+    email: "sahabat@amalsholeh.id",
+    password_hash: "sahabat123",
     role: "volunteer",
   });
 
   await Event.bulkCreate([
     {
       category_id: categories[0].id,
-      title: "Bersih-Bersih Sungai Cikapundung",
-      description: "Kegiatan gotong royong membersihkan sampah di sepanjang Sungai Cikapundung.",
-      location: "Cikapundung, Bandung",
-      quota: 30,
+      title: "Wakaf Pembangunan Sarana Wudhu Masjid Al-Barokah",
+      description: "Program wakaf bersama untuk pembangunan dan perbaikan tempat wudhu serta sanitasi Masjid Al-Barokah agar jamaah beribadah lebih nyaman.",
+      location: "Masjid Al-Barokah, Coblong, Bandung",
+      quota: 50,
       event_date: "2026-09-05",
       start_time: "07:00:00",
       end_time: "11:00:00",
     },
     {
       category_id: categories[1].id,
-      title: "Mengajar Baca Tulis untuk Anak Jalanan",
-      description: "Program pendampingan belajar membaca dan menulis untuk anak-anak di sekitar kota.",
-      location: "Balai RW 05, Bandung",
-      quota: 15,
+      title: "Program Mengaji & Pembagian Iqra Gratis Anak Yatim",
+      description: "Program pembinaan mengaji bagi anak-anak yatim dan dhuafa, serta pembagian buku Iqra dan Al-Qur'an gratis.",
+      location: "Aula Yayasan AmalSholeh, Bandung",
+      quota: 25,
       event_date: "2026-09-12",
       start_time: "09:00:00",
       end_time: "12:00:00",
@@ -49,8 +49,8 @@ async function seed() {
   ]);
 
   console.log("✅ Seed selesai. Akun demo:");
-  console.log("   Admin      : admin@volunteer.id / admin123");
-  console.log("   Volunteer  : volunteer@volunteer.id / vol12345");
+  console.log("   Admin         : admin@amalsholeh.id / admin123");
+  console.log("   Sahabat Amal  : sahabat@amalsholeh.id / sahabat123");
   process.exit(0);
 }
 

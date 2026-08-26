@@ -4,17 +4,17 @@ import { eventApi, categoryApi } from "../api/resources";
 import EventCard from "../components/EventCard";
 
 const categoryIcons = {
-  "Lingkungan": "🌿",
-  "Pendidikan": "📚",
-  "Bencana Alam": "🚨",
-  "Kesehatan": "🏥",
+  "Wakaf & Pembangunan": "🕌",
+  "Pendidikan & Dakwah": "📚",
+  "Kemanusiaan & Bencana": "🚨",
+  "Sedekah & Pangan": "🍲",
 };
 
 const categoryColors = {
-  "Lingkungan": { bg: "bg-emerald-50 hover:bg-emerald-100/70", border: "border-emerald-100", text: "text-emerald-700", glow: "hover:shadow-emerald-200/50" },
-  "Pendidikan": { bg: "bg-blue-50 hover:bg-blue-100/70", border: "border-blue-100", text: "text-blue-700", glow: "hover:shadow-blue-200/50" },
-  "Bencana Alam": { bg: "bg-orange-50 hover:bg-orange-100/70", border: "border-orange-100", text: "text-orange-700", glow: "hover:shadow-orange-200/50" },
-  "Kesehatan": { bg: "bg-rose-50 hover:bg-rose-100/70", border: "border-rose-100", text: "text-rose-700", glow: "hover:shadow-rose-200/50" },
+  "Wakaf & Pembangunan": { bg: "bg-emerald-50 hover:bg-emerald-100/70", border: "border-emerald-100", text: "text-emerald-700", glow: "hover:shadow-emerald-200/50" },
+  "Pendidikan & Dakwah": { bg: "bg-blue-50 hover:bg-blue-100/70", border: "border-blue-100", text: "text-blue-700", glow: "hover:shadow-blue-200/50" },
+  "Kemanusiaan & Bencana": { bg: "bg-orange-50 hover:bg-orange-100/70", border: "border-orange-100", text: "text-orange-700", glow: "hover:shadow-orange-200/50" },
+  "Sedekah & Pangan": { bg: "bg-rose-50 hover:bg-rose-100/70", border: "border-rose-100", text: "text-rose-700", glow: "hover:shadow-rose-200/50" },
 };
 const defaultColor = { bg: "bg-purple-50 hover:bg-purple-100/70", border: "border-purple-100", text: "text-purple-700", glow: "hover:shadow-purple-200/50" };
 
@@ -72,13 +72,13 @@ export default function Home() {
         
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-12 items-center relative z-10">
           <div className="space-y-6">
-            <span className="inline-block text-xs font-bold tracking-widest text-emerald-400 uppercase">Untuk setiap aksi kecil</span>
+            <span className="inline-block text-xs font-bold tracking-widest text-emerald-400 uppercase">Untuk setiap amal kebaikan</span>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
-              Temukan aksi nyata, tumbuhkan dampak bersama komunitasmu.
+              Temukan program amal, tebar kebaikan bersama yayasan pilihanmu.
             </h1>
             <p className="text-emerald-100/85 text-lg max-w-xl">
-              Volunteer menghubungkan relawan dengan organisasi yang membutuhkan tenaga,
-              waktu, dan kepedulianmu — mulai dari lingkungan, pendidikan, hingga tanggap bencana.
+              AmalSholeh menghubungkan para Sahabat Amal dengan yayasan pengelola yang membutuhkan tenaga,
+              waktu, dan kepedulianmu — mulai dari pembangunan masjid, pendidikan anak yatim, hingga bantuan pangan.
             </p>
 
             {/* Hero Search Box */}
@@ -86,39 +86,39 @@ export default function Home() {
               <input
                 className="w-full bg-transparent px-4 py-2.5 outline-none text-white placeholder-emerald-200/60 text-sm"
                 type="text"
-                placeholder="Cari kegiatan sosial (mis. bersih-bersih, mengajar)..."
+                placeholder="Cari program amal (mis. wakaf wudhu, mengaji)..."
                 value={heroSearch}
                 onChange={(e) => setHeroSearch(e.target.value)}
               />
               <button type="submit" className="btn-pill-primary text-sm whitespace-nowrap px-6 py-2.5">
-                Cari Aksi
+                Cari Amal
               </button>
             </form>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <Link to="/events" className="btn-pill-primary">Jelajahi Kegiatan</Link>
-              <Link to="/register" className="btn-pill-outline border-white text-white hover:bg-white hover:text-emerald-950">Daftar Volunteer</Link>
+              <Link to="/events" className="btn-pill-primary">Jelajahi Program Amal</Link>
+              <Link to="/register" className="btn-pill-outline border-white text-white hover:bg-white hover:text-emerald-950">Daftar Sahabat Amal</Link>
             </div>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm shadow-2xl space-y-6">
-            <h3 className="text-lg font-bold text-white">Komunitas yang bergerak</h3>
+            <h3 className="text-lg font-bold text-white">Yayasan yang amanah</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
                 <strong className="block text-2xl font-extrabold text-white">{stats.volunteers}</strong>
-                <span className="text-xs text-emerald-200/80">Volunteer aktif</span>
+                <span className="text-xs text-emerald-200/80">Sahabat Amal aktif</span>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
                 <strong className="block text-2xl font-extrabold text-white">
                   {stats.eventsThisMonth > 0 ? stats.eventsThisMonth : stats.totalEvents}
                 </strong>
                 <span className="text-xs text-emerald-200/80">
-                  {stats.eventsThisMonth > 0 ? "Event bulan ini" : "Event terdaftar"}
+                  {stats.eventsThisMonth > 0 ? "Program bulan ini" : "Program terdaftar"}
                 </span>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
                 <strong className="block text-2xl font-extrabold text-white">{stats.satisfactionRate}%</strong>
-                <span className="text-xs text-emerald-200/80">Kepuasan relawan</span>
+                <span className="text-xs text-emerald-200/80">Kepuasan sahabat amal</span>
               </div>
             </div>
           </div>
@@ -152,19 +152,19 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="glass-card p-6 rounded-3xl space-y-3">
-            <div className="inline-flex w-12 h-12 rounded-2xl items-center justify-center text-2xl bg-emerald-50 text-emerald-600">🌿</div>
-            <h3 className="font-bold text-lg text-emerald-950">Pilih aksi yang cocok</h3>
-            <p className="text-gray-500 text-sm">Jelajahi kegiatan berdasarkan kategori, lokasi, hingga misi sosial yang paling kamu pedulikan.</p>
+            <div className="inline-flex w-12 h-12 rounded-2xl items-center justify-center text-2xl bg-emerald-50 text-emerald-600">🕌</div>
+            <h3 className="font-bold text-lg text-emerald-950">Pilih program yang berkah</h3>
+            <p className="text-gray-500 text-sm">Jelajahi program amal berdasarkan kategori, lokasi, hingga jenis kontribusi yang paling berkah.</p>
           </div>
           <div className="glass-card p-6 rounded-3xl space-y-3">
             <div className="inline-flex w-12 h-12 rounded-2xl items-center justify-center text-2xl bg-blue-50 text-blue-600">🤝</div>
             <h3 className="font-bold text-lg text-emerald-950">Terhubung dengan sesama</h3>
-            <p className="text-gray-500 text-sm">Temukan relawan lain yang memiliki semangat yang sama untuk menciptakan perubahan.</p>
+            <p className="text-gray-500 text-sm">Temukan sahabat amal lain yang memiliki semangat yang sama untuk menyebarkan kebaikan.</p>
           </div>
           <div className="glass-card p-6 rounded-3xl space-y-3">
             <div className="inline-flex w-12 h-12 rounded-2xl items-center justify-center text-2xl bg-amber-50 text-amber-600">✨</div>
             <h3 className="font-bold text-lg text-emerald-950">Bangun dampak nyata</h3>
-            <p className="text-gray-500 text-sm">Ikuti event yang berdampak, nikmati prosesnya, dan lihat kontribusimu menjadi nyata setiap hari.</p>
+            <p className="text-gray-500 text-sm">Ikuti program amal yang berdampak, niatkan ibadah, dan lihat kontribusimu membawa manfaat nyata.</p>
           </div>
         </div>
       </section>
@@ -173,8 +173,8 @@ export default function Home() {
       {popularEvents.length > 0 && (
         <section className="max-w-6xl mx-auto px-6">
           <div className="space-y-2 mb-6">
-            <h2 className="text-2xl font-display font-bold text-emerald-950">🔥 Kegiatan Paling Populer</h2>
-            <p className="text-gray-500 text-sm">Kegiatan dengan peminat terbanyak saat ini.</p>
+            <h2 className="text-2xl font-display font-bold text-emerald-950">🔥 Program Amal Paling Populer</h2>
+            <p className="text-gray-500 text-sm">Program dengan Sahabat Amal terbanyak saat ini.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {popularEvents.map((pe) => (
@@ -193,7 +193,7 @@ export default function Home() {
                   <span>📅</span> {new Date(pe.event_date).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })}
                 </p>
                 <div className="border-t border-gray-100/80 pt-3 mt-auto text-xs font-bold text-emerald-800/80">
-                  🏢 Voluntree Foundation
+                  🏢 AmalSholeh Foundation
                 </div>
               </Link>
             ))}
@@ -204,24 +204,24 @@ export default function Home() {
       {/* Latest Events Section */}
       <section className="max-w-6xl mx-auto px-6">
         <div className="space-y-2 mb-6">
-          <h2 className="text-2xl font-display font-bold text-emerald-950">Kegiatan Terbaru</h2>
-          <p className="text-gray-500 text-sm">Beberapa kegiatan volunteer yang baru saja dipublikasikan.</p>
+          <h2 className="text-2xl font-display font-bold text-emerald-950">Program Amal Terbaru</h2>
+          <p className="text-gray-500 text-sm">Beberapa program amal yang baru saja dipublikasikan.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {events.map((e) => <EventCard key={e.id} event={e} />)}
         </div>
-        {events.length === 0 && <p className="text-muted">Belum ada kegiatan yang dipublikasikan.</p>}
+        {events.length === 0 && <p className="text-muted">Belum ada program amal yang dipublikasikan.</p>}
       </section>
 
       {/* CTA Section */}
       <section className="max-w-6xl mx-auto px-6">
         <div className="bg-gradient-to-r from-emerald-800 to-teal-900 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-white text-left">
           <div className="space-y-2">
-            <h2 className="text-2xl md:text-3xl font-display font-bold">Siap untuk mulai membantu?</h2>
-            <p className="text-emerald-100/80 text-sm md:text-base max-w-xl">Gabung jadi volunteer atau buka kesempatan bagi komunitasmu untuk terhubung dengan relawan yang siap bergerak.</p>
+            <h2 className="text-2xl md:text-3xl font-display font-bold">Siap untuk mulai beramal?</h2>
+            <p className="text-emerald-100/80 text-sm md:text-base max-w-xl">Gabung jadi Sahabat Amal atau buka kesempatan bagi yayasanmu untuk terhubung dengan para pendaftar yang siap beramal.</p>
           </div>
           <div className="flex flex-wrap gap-4 shrink-0">
-            <Link to="/events" className="btn-pill-primary">Lihat Kegiatan</Link>
+            <Link to="/events" className="btn-pill-primary">Lihat Program Amal</Link>
             <Link to="/register" className="btn-pill-outline border-white/60 text-white hover:bg-white hover:text-emerald-950">Daftar Sekarang</Link>
           </div>
         </div>

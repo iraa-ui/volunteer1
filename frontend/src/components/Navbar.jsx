@@ -21,13 +21,13 @@ export default function Navbar() {
           className="flex items-center gap-2.5 font-display text-xl font-bold text-emerald-800"
           onClick={() => setIsOpen(false)}
         >
-          <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-md shadow-emerald-500/20 text-lg">🤝</span>
-          Volunteer
+          <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-500 shadow-md shadow-emerald-500/20 text-lg">🤲</span>
+          AmalSholeh
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/events" className="text-gray-500 hover:text-emerald-800 font-semibold transition-colors">Jelajahi Kegiatan</Link>
+          <Link to="/events" className="text-gray-500 hover:text-emerald-800 font-semibold transition-colors">Jelajahi Program Amal</Link>
           <Link to="/komunitas" className="text-gray-500 hover:text-emerald-800 font-semibold transition-colors">Komunitas</Link>
 
           {!user && (
@@ -41,7 +41,7 @@ export default function Navbar() {
             <Link to="/dashboard" className="text-gray-500 hover:text-emerald-800 font-semibold transition-colors">Dashboard Saya</Link>
           )}
           {user?.role === "admin" && (
-            <Link to="/admin/dashboard" className="text-gray-500 hover:text-emerald-800 font-semibold transition-colors">Kelola Kegiatan</Link>
+            <Link to="/admin/dashboard" className="text-gray-500 hover:text-emerald-800 font-semibold transition-colors">Kelola Program</Link>
           )}
 
           {user && (
@@ -79,7 +79,7 @@ export default function Navbar() {
               className="text-gray-600 hover:text-emerald-800 font-semibold py-1.5 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Jelajahi Kegiatan
+              Jelajahi Program Amal
             </Link>
             <Link 
               to="/komunitas" 
@@ -104,7 +104,7 @@ export default function Navbar() {
                 className="text-gray-600 hover:text-emerald-800 font-semibold py-1.5 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Kelola Kegiatan
+                Kelola Program
               </Link>
             )}
           </div>

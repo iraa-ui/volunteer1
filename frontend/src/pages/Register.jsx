@@ -32,8 +32,8 @@ export default function Register() {
   return (
     <div className="max-w-md mx-auto px-6 py-12 space-y-6 text-left">
       <div className="space-y-2">
-        <h1 className="text-3xl font-display font-bold text-emerald-950">Gabung Volunteer</h1>
-        <p className="text-gray-500 text-sm">Daftar sebagai volunteer untuk berpartisipasi dalam berbagai kegiatan sosial.</p>
+        <h1 className="text-3xl font-display font-bold text-emerald-950">Gabung Sahabat Amal</h1>
+        <p className="text-gray-500 text-sm">Daftar sebagai Sahabat Amal untuk berpartisipasi dalam berbagai program kebaikan.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="glass-panel p-8 rounded-3xl space-y-5">

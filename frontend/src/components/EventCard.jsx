@@ -25,7 +25,7 @@ export default function EventCard({ event }) {
       {/* Quota Progress Bar */}
       <div className="mt-auto pt-2">
         <div className="flex justify-between text-xs font-bold text-gray-500 mb-1.5">
-          <span>Relawan Terisi</span>
+          <span>Sahabat Amal Terkumpul</span>
           <span className="text-emerald-700">{approved}/{event.quota}</span>
         </div>
         <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
@@ -34,7 +34,7 @@ export default function EventCard({ event }) {
       </div>
 
       <div className="border-t border-gray-100/80 pt-3 mt-4 text-xs font-bold text-emerald-800/80">
-        🏢 Voluntree Foundation
+        🏢 AmalSholeh Foundation
       </div>
     </Link>
   );

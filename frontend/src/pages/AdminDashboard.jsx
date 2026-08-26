@@ -129,8 +129,8 @@ export default function AdminDashboard() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 space-y-8 text-left">
       <div className="space-y-2">
-        <h1 className="text-3xl font-display font-bold text-emerald-950">Dashboard Admin</h1>
-        <p className="text-gray-500 text-sm">Selamat datang, {user?.full_name}. Buat kegiatan baru dan kelola pendaftar relawan.</p>
+        <h1 className="text-3xl font-display font-bold text-emerald-950">Dashboard Pengelola</h1>
+        <p className="text-gray-500 text-sm">Selamat datang, {user?.full_name}. Buat program amal baru dan kelola pendaftar program.</p>
       </div>
 
       {eventError && (
@@ -142,15 +142,15 @@ export default function AdminDashboard() {
       {/* Ringkasan */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="glass-panel p-6 rounded-2xl">
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Total Kegiatan</span>
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Total Program Amal</span>
           <strong className="text-3xl font-extrabold text-emerald-950 block">{totalEvents}</strong>
         </div>
         <div className="glass-panel p-6 rounded-2xl">
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Kegiatan Aktif</span>
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Program Aktif</span>
           <strong className="text-3xl font-extrabold text-emerald-950 block">{activeEvents}</strong>
         </div>
         <div className="glass-panel p-6 rounded-2xl">
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Total Kuota Dibuka</span>
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Total Kuota Terbuka</span>
           <strong className="text-3xl font-extrabold text-emerald-950 block">{totalQuota}</strong>
         </div>
       </div>
@@ -159,16 +159,16 @@ export default function AdminDashboard() {
         {/* Form Create / Edit Event */}
         <form onSubmit={handleEventSubmit} className="glass-panel p-6 rounded-3xl space-y-4">
           <h3 className="text-lg font-bold text-emerald-950 border-b border-gray-100 pb-2">
-            {editingId ? "Ubah Kegiatan" : "Buat Kegiatan Baru"}
+            {editingId ? "Ubah Program Amal" : "Buat Program Amal Baru"}
           </h3>
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-emerald-950">Judul Kegiatan</label>
-            <input className="glass-input" name="title" required value={form.title} onChange={handleEventChange} placeholder="Contoh: Bersih Sungai Cikapundung" />
+            <label className="text-xs font-bold text-emerald-950">Nama Program Amal</label>
+            <input className="glass-input" name="title" required value={form.title} onChange={handleEventChange} placeholder="Contoh: Santunan Anak Yatim Dhuafa" />
           </div>
           <div className="space-y-1">
             <label className="text-xs font-bold text-emerald-950">Deskripsi</label>
-            <textarea className="glass-input" name="description" rows={3} required value={form.description} onChange={handleEventChange} placeholder="Tulis rincian tugas relawan, syarat skill, dll..." />
+            <textarea className="glass-input" name="description" rows={3} required value={form.description} onChange={handleEventChange} placeholder="Tulis rincian kegiatan amal, target donasi/kegiatan, dll..." />
           </div>
           <div className="space-y-1">
             <label className="text-xs font-bold text-emerald-950">Lokasi</label>
@@ -183,7 +183,7 @@ export default function AdminDashboard() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-emerald-950">Kuota Relawan</label>
+              <label className="text-xs font-bold text-emerald-950">Kuota Relawan Amal</label>
               <input className="glass-input" type="number" name="quota" min={1} required value={form.quota} onChange={handleEventChange} />
             </div>
             <div className="space-y-1">
@@ -207,7 +207,7 @@ export default function AdminDashboard() {
 
           <div className="flex gap-3 pt-2">
             <button className="btn-pill-primary text-sm flex-1" type="submit">
-              {editingId ? "Simpan Perubahan" : "Terbitkan Kegiatan"}
+              {editingId ? "Simpan Perubahan" : "Terbitkan Program Amal"}
             </button>
             {editingId && (
               <button type="button" className="btn-pill-outline text-sm" onClick={() => { setEditingId(null); setForm(emptyForm); }}>
@@ -219,8 +219,8 @@ export default function AdminDashboard() {
 
         {/* List of Events */}
         <div className="space-y-6">
-          <h3 className="text-xl font-display font-bold text-emerald-950">Semua Kegiatan</h3>
-          {events.length === 0 && <p className="text-gray-500 text-sm">Belum ada kegiatan yang diterbitkan.</p>}
+          <h3 className="text-xl font-display font-bold text-emerald-950">Semua Program Amal</h3>
+          {events.length === 0 && <p className="text-gray-500 text-sm">Belum ada program amal yang diterbitkan.</p>}
           <div className="flex flex-col gap-4">
             {events.map((e) => (
               <div key={e.id} className="glass-card p-6 rounded-2xl flex flex-col gap-4">
@@ -242,8 +242,8 @@ export default function AdminDashboard() {
           {/* Registrants Table Section */}
           {selectedEvent && (
             <div className="glass-panel p-6 rounded-3xl space-y-4">
-              <h4 className="text-lg font-bold text-emerald-950 border-b border-gray-100 pb-2">Pendaftar: {selectedEvent.title}</h4>
-              {registrants.length === 0 && <p className="text-gray-500 text-sm">Belum ada pendaftar pada kegiatan ini.</p>}
+              <h4 className="text-lg font-bold text-emerald-950 border-b border-gray-100 pb-2">Peserta: {selectedEvent.title}</h4>
+              {registrants.length === 0 && <p className="text-gray-500 text-sm">Belum ada pendaftar pada program amal ini.</p>}
               <div className="flex flex-col gap-2">
                 {registrants.map((r) => (
                   <div key={r.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 rounded-xl bg-white/50 border border-gray-100 gap-3">

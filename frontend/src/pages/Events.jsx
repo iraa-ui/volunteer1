@@ -53,8 +53,8 @@ export default function Events() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-display font-bold text-emerald-950">Jelajahi Kegiatan Volunteer</h1>
-        <p className="text-gray-500 text-sm">Cari kegiatan sesuai minat dan lokasimu.</p>
+        <h1 className="text-3xl font-display font-bold text-emerald-950">Jelajahi Program Amal Sholeh</h1>
+        <p className="text-gray-500 text-sm">Cari program kebaikan berdasarkan kategori dan lokasi.</p>
       </div>
 
       <div className="flex flex-col md:flex-row gap-4 p-4 glass-panel rounded-2xl">
@@ -73,7 +73,7 @@ export default function Events() {
       </div>
 
       {loading ? (
-        <p className="text-gray-500 font-bold text-center py-12">Memuat kegiatan...</p>
+        <p className="text-gray-500 font-bold text-center py-12">Memuat program amal...</p>
       ) : (
         <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -81,7 +81,7 @@ export default function Events() {
           </div>
           {events.length === 0 && (
             <div className="text-center py-12 glass-panel rounded-2xl space-y-2">
-              <strong className="block text-emerald-950 text-lg">Tidak ada kegiatan yang cocok dengan pencarianmu.</strong>
+              <strong className="block text-emerald-950 text-lg">Tidak ada program amal yang cocok dengan pencarianmu.</strong>
               <p className="text-gray-500 text-sm">Coba cari dengan kata kunci lain atau pilih kategori yang berbeda.</p>
             </div>
           )}

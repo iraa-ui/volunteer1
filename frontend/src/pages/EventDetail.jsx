@@ -36,7 +36,7 @@ export default function EventDetail() {
     setStatus({ loading: true, message: "", error: false });
     try {
       await registrationApi.apply(Number(id));
-      setStatus({ loading: false, message: "Pendaftaran berhasil dikirim! Menunggu konfirmasi organisasi.", error: false });
+      setStatus({ loading: false, message: "Pendaftaran beramal berhasil dikirim! Menunggu konfirmasi yayasan.", error: false });
       setIsAlreadyApplied(true);
       loadEvent();
     } catch (err) {
@@ -58,7 +58,7 @@ export default function EventDetail() {
         )}
         <h1 className="text-3xl md:text-4xl font-display font-bold text-emerald-950">{event.title}</h1>
         <p className="text-gray-500 text-sm">
-          Diselenggarakan oleh <strong className="text-emerald-900">Voluntree Foundation</strong>
+          Diselenggarakan oleh <strong className="text-emerald-900">AmalSholeh Foundation</strong>
         </p>
       </div>
 
@@ -77,21 +77,21 @@ export default function EventDetail() {
         </div>
         <div className="glass-panel p-4 rounded-2xl flex flex-col justify-center text-left">
           <strong className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">👥 Sisa Kuota</strong>
-          <span className="text-emerald-700 text-sm font-bold">{event.remaining_quota} Kursi Tersedia</span>
+          <span className="text-emerald-700 text-sm font-bold">{event.remaining_quota} Sisa Kebutuhan</span>
         </div>
       </div>
 
       <div className="glass-panel p-6 md:p-8 rounded-3xl space-y-6 text-left">
         <div>
-          <h3 className="text-xl font-display font-bold text-emerald-950 border-b border-gray-100 pb-3">Deskripsi Kegiatan</h3>
+          <h3 className="text-xl font-display font-bold text-emerald-950 border-b border-gray-100 pb-3">Deskripsi Program Amal</h3>
           <p className="mt-4 text-gray-600 text-base leading-relaxed whitespace-pre-line">{event.description}</p>
         </div>
         
         {/* Large Quota Progress Bar */}
         <div className="pt-4 border-t border-gray-100">
           <div className="flex flex-col sm:flex-row sm:justify-between text-xs font-bold text-gray-500 mb-2 gap-1">
-            <span>Progres Rekrutmen Relawan</span>
-            <span className="text-emerald-700">{event.approved_count} dari {event.quota} Relawan Terkumpul ({pct}%)</span>
+            <span>Progres Penerimaan Relawan Amal</span>
+            <span className="text-emerald-700">{event.approved_count} dari {event.quota} Sahabat Amal Terkumpul ({pct}%)</span>
           </div>
           <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
             <div className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full transition-all duration-300" style={{ width: `${pct}%` }}></div>
@@ -109,12 +109,12 @@ export default function EventDetail() {
             disabled={status.loading || event.remaining_quota === 0 || isAlreadyApplied}
           >
             {isAlreadyApplied 
-              ? "Sudah Terdaftar" 
+              ? "Sudah Terdaftar Beramal" 
               : event.remaining_quota === 0 
                 ? "Kuota Penuh" 
                 : status.loading 
                   ? "Mengirim..." 
-                  : "Daftar Sebagai Volunteer"}
+                  : "Ikut Serta Beramal"}
           </button>
           {status.message && (
             <p className={`mt-3 font-semibold text-sm ${status.error ? "text-red-600" : "text-emerald-700"}`}>
@@ -126,7 +126,7 @@ export default function EventDetail() {
 
       {!user && (
         <div className="glass-panel p-4 rounded-2xl text-center text-gray-500 text-sm font-semibold">
-          🔑 Masuk sebagai volunteer untuk mendaftar kegiatan ini.
+          🔑 Masuk sebagai Sahabat Amal untuk bergabung dalam program ini.
         </div>
       )}
     </div>
